@@ -146,3 +146,45 @@ const hobbyColor = 'blue'
     </style>
 </head>
 ```
+
+## Add site-wide styling
+
+We can also add global styling to our site.
+
+### Add a global stylesheet
+
+There are a few ways to define styles **globally** in Astro. Here we will create and import a `global.css` file into each of our pages. This way we can control some styles site-wide and also apply some specific styles where we need them.
+
+Create a new folder: `/src/styles/global.css`
+
+Here's some code to drop in there:
+
+```css
+html {
+  background-color: #f1f5f9;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 80ch;
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 1rem 0;
+  font-size: 2.5rem;
+}
+```
+
+Now we can import `global.css` in the frontmatter script our page:
+
+```js
+import '../styles/global.css'
+```
