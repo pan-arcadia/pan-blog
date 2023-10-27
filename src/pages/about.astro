@@ -7,6 +7,8 @@ const identity = {
 	country: 'Germany',
 	hobbies: ['sleeping', 'sitting', 'drinking']
 }
+
+const hobbyColor = 'navy';
 ---
 
 <html lang="en">
@@ -16,6 +18,17 @@ const identity = {
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+		<style define:vars={{hobbyColor}}>
+			h1 {
+				color: purple;
+				font-size: 4rem;
+			}
+
+			.hobbies {
+				color: var(--hobbyColor);
+				font-weight: bold;
+			}
+		</style>
 	</head>
 	<body>
 		<a href="/">Home</a>
@@ -29,7 +42,7 @@ const identity = {
 
 		<p>My name is {identity.firstname}</p>
 		<ul>
-			{identity.hobbies.map((hobby) => <li>{hobby}</li>)}
+			{identity.hobbies.map((hobby) => <li class="hobbies">{hobby}</li>)}
 		</ul>
 	</body>
 </html>
