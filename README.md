@@ -47,3 +47,43 @@ In the `/pages/blog.asto`, create some links to these posts:
     </li>
 </ul>
 ```
+
+## Add dynamic content
+
+### Define and use a variable.
+
+We can add JavaScript to our Frontmatter section of the page and then refer to variables using curly braces `{}` in our code.
+
+```js
+// Frontmatter section of our Astro page.
+---
+const pageTitle = 'Our page'
+---
+```
+
+```html
+<!-- html section of our astro page. -->
+<h1>{pageTitle}</h1>
+```
+
+### Write JavaScript expressions in Astro
+
+```js
+// Frontmatter section of our Astro page.
+---
+const identity = {
+	firstname: 'Adam',
+	lastname: 'Stone',
+	country: 'Germany',
+	hobbies: ['sleeping', 'sitting', 'drinking']
+}
+---
+```
+
+```html
+<!-- html section of our astro page. -->
+<p>My name is {identity.firstname}</p>
+<ul>
+    {identity.hobbies.map((hobby) => <li>{hobby}</li>)}
+</ul>
+```

@@ -1,5 +1,12 @@
 ---
+const pageTitle = 'About us'
 
+const identity = {
+	firstname: 'Adam',
+	lastname: 'Stone',
+	country: 'Germany',
+	hobbies: ['sleeping', 'sitting', 'drinking']
+}
 ---
 
 <html lang="en">
@@ -8,18 +15,21 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Blog About</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
 		<a href="/">Home</a>
         <a href="/about/">About</a>
         <a href="/blog/">Blog</a>
-		<h1>Astro Blog About</h1>
-
-
+		<h1>{pageTitle}</h1>
 
         <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus repellat explicabo nobis iusto labore animi necessitatibus eaque enim quod ducimus nihil, ut ex cum perspiciatis harum veritatis alias. Excepturi, odio.
         </p>
+
+		<p>My name is {identity.firstname}</p>
+		<ul>
+			{identity.hobbies.map((hobby) => <li>{hobby}</li>)}
+		</ul>
 	</body>
 </html>
