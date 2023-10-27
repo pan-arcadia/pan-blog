@@ -31,3 +31,19 @@ Add navigation links to all three pages:
 <a href="/about/">About</a>
 <a href="/blog/">Blog</a>
 ```
+
+## Create posts
+
+In `/pages/posts/`, create three files: `post-1.md`, `post-2.md`, and `post-3.md`.
+
+In the `/pages/blog.asto`, create some links to these posts:
+
+```html
+<ul>
+    <li>
+        <a href="/posts/post-1">Post 1</a>
+        <a href="/posts/post-2">Post 2</a>
+        <a href="/posts/post-3">Post 3</a>
+    </li>
+</ul>
+```
