@@ -18,3 +18,16 @@ Once the setup is running:
 - No TypeScript.
 - Create repository.
 
+## Create astro pages
+
+Create an `about.astro` and `blog.astro` page in the `pages` directory. Copy the contents of `index.astro` to these pages.
+
+## Add navigation links
+
+Add navigation links to all three pages:
+
+```html
+<a href="/">Home</a>
+<a href="/about/">About</a>
+<a href="/blog/">Blog</a>
+```
