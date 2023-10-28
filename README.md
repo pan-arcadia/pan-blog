@@ -197,3 +197,18 @@ Create a `src/components/` directory.
 
 Create a `src/components/Navigation.astro` file.
 
+Populate our component with the code we want.
+
+Now we can import our component into the frontmatter script on a page:
+
+```js
+import Navigation from '../components/Navigation.astro'
+```
+
+And insert our component as a tag in our markup:
+
+```html
+<Navigation />
+```
+
+The component renders the code in the file.
