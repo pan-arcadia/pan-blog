@@ -188,3 +188,12 @@ Now we can import `global.css` in the frontmatter script our page:
 ```js
 import '../styles/global.css'
 ```
+
+## Unit 3 Components
+
+Let's make some components.
+
+Create a `src/components/` directory.
+
+Create a `src/components/Navigation.astro` file.
+
