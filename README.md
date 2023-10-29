@@ -212,3 +212,18 @@ And insert our component as a tag in our markup:
 ```
 
 The component renders the code in the file.
+
+## Send our first script to the browser.
+
+We can add client-side JavaScript using `<script>` tags to the *markup* section of the `.astro` file.
+
+`<script>` tags by default are process by Astro.
+
+- Any imports will be bundled, allowing us to import local files or Node modules.
+- The processed script will be injected into our page's `<head>` with `type="module"`.
+- TypeScript is fully supported.
+- If our component is used more than once on a page, the script will be included once.
+
+- Rendering is not blocked. The browser continues to process the rest of the HTML while the module script and its dependencies load.
+- The browser waits for HTML to be processed before executing module scripts. 
+- `async` and `defer` attributes are not necessary. Module scripts are always deferred.
