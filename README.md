@@ -244,3 +244,80 @@ In this unit we will:
 - Pass page-specific as props to its layout
 
 Create an new file at `src/layouts/Baselayout.astro`.
+
+Copy the contents of `index.astro` into `BaseLayout.astro`.
+
+Now we can replace the code in `index.astro` with:
+
+```js
+// index.astro
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+const pageTitle = 'Home Page'
+---
+
+<BaseLayout>
+    <h2>Blog subtitle text.</h2>
+</BaseLayout>
+
+```
+
+Now we add a `<slot>` element to `BaseLayout.astro`:
+
+```js
+// BaseLayout.astro
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+const pageTitle = "Home Page";
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <Header />
+    <h1>{pageTitle}</h1>
+
+    <slot />
+
+    <Footer />
+    <script>
+      import "../scripts/menu.js";
+    </script>
+  </body>
+</html>
+```
+
+### Pass page-specific values as props
+
+Pass the page title to our layout component from `index.astro` using a component attribute:
+
+```js
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Home Page";
+---
+<BaseLayout pageTitle={pageTitle}>
+  <h2>My awesome blog subtitle</h2>
+</BaseLayout>
+```
+
+Change the script of our `BaseLayout` component to receive a page title via `Astro.props` instead of defining a constant.
+
+```js
+// BaseLayout.astro
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+// const pageTitle = "Home Page";
+const { pageTitle } = Astro.props;
+---
+```
+
