@@ -227,3 +227,20 @@ We can add client-side JavaScript using `<script>` tags to the *markup* section 
 - Rendering is not blocked. The browser continues to process the rest of the HTML while the module script and its dependencies load.
 - The browser waits for HTML to be processed before executing module scripts. 
 - `async` and `defer` attributes are not necessary. Module scripts are always deferred.
+
+## Unit 4 Layouts
+
+In this unit we will:
+
+- Create reusable layout components
+- Pass content to our layouts with `<slot />`
+- Pass data from Markdown frontmatter to our layouts
+- Nest multiple layouts
+
+### Build our first layout
+
+- Refactor common layouts into a page layout
+- Use an Astro `<slot />` element to place page contents withing a layout
+- Pass page-specific as props to its layout
+
+Create an new file at `src/layouts/Baselayout.astro`.
