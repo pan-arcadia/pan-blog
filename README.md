@@ -321,3 +321,27 @@ const { pageTitle } = Astro.props;
 ---
 ```
 
+## Create and pass data to a custom blog layout
+
+Let's add a layout for our blog posts!
+
+When we inclue the `layout` frontmatter property in an `.md` file, all of our frontmatter YAML values are available to the layout file.
+
+1. Create a new file at `src/layouts/MarkdownPostLayout.astro`
+2. Add some code to our new layout file:
+  ```js
+---
+const { frontmatter } = Astro.props;
+---
+<h1>{frontmatter.title}</h1>
+<p style="color:red">Written by {frontmatter.author}</p>
+<p>Published on: {frontmatter.pubDate.slice(0, 10)}</p>
+<slot />
+```
+3. Include the new layout in our `.md` file:
+```js
+---
+layout: ../../layouts/MarkdownPostLayout.astro
+
+---
+```
