@@ -352,3 +352,27 @@ layout: ../../layouts/MarkdownPostLayout.astro
 
 We've added a layout for our blog posts. Now we can make our posts look like the rest of our site.
 
+### Nest our two layouts
+
+Our `Baselayout.astro` layout defines the overall layout of our pages.
+
+We can match the look or our blog posts to the rest of our site by **nesting layouts**.
+
+In our `MarkdownPost.astro` file, import `BaseLayout.astro` and use it to wrap the entire template content:
+
+```js
+---
+// MarkdownPost.asto
+
+import BaseLayout from './BaseLayout.astro';
+const { frontmatter } = Astro.props;
+---
+<BaseLayout pageTitle={frontmatter.title}>
+  <!-- <h1>{frontmatter.title}</h1> -->
+  <p>{frontmatter.pubDate.slice(0,10)}</p>
+  <p><em>{frontmatter.description}</em></p>
+  <p>Written by: {frontmatter.author}</p>
+  <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+  <slot />
+</BaseLayout>
+```
