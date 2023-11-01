@@ -376,3 +376,62 @@ const { frontmatter } = Astro.props;
   <slot />
 </BaseLayout>
 ```
+
+## Unit 5 Astro API
+
+With Astro API's we can add to our blog:
+
+- index page
+- tag pages
+- RSS feed
+
+And we will learn how to use:
+
+- `Astro.glob()` to access data from files in our project
+- `getStaticPaths()` to create multiple pages (routes) at once
+- The Astro RSS package to create an RSS feed
+
+### Create a blog post archive
+
+Here we can configure the Blog page to create a list of links to our posts automatically.
+
+We will:
+
+- Access data from all our posts at once using `Astro.glob()`
+- Display a dynamically generated list of posts on our Blog page
+- Refactor to use a `<BlogPost />` component for each list item
+
+#### Dynamically display a list of posts
+
+In our `blog.asto` file, we can use `Astro.glob()` to return an array of objects, one for each blog post in `/src/pages/posts`:
+
+```js
+---
+import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// Get an array of data providing information on each of our markdown files.
+const allPosts = await Astro.glob('../pages/posts/*.md')
+
+const pageTitle = "Blog Page";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<style>
+
+	</style>
+	<!-- <ul>
+		<li><a href="/posts/post-1">Post 1</a></li>
+		<li><a href="/posts/post-2">Post 2</a></li>
+		<li><a href="/posts/post-3">Post 3</a></li>
+	</ul> -->
+
+  <!-- Render the links to our markdown files. -->
+	<ul>
+		{
+			allPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)
+		}
+	</ul>
+
+</BaseLayout>
+```
