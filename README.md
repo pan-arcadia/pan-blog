@@ -435,3 +435,167 @@ const pageTitle = "Blog Page";
 
 </BaseLayout>
 ```
+
+### Generate tag pages
+
+Here we will:
+
+- Create a page to generate multiple pages
+- Specify which page routes to build, and pass each page its own props
+
+#### Dynamic page routing
+
+We can create entire sets of pages dynamically using `.astro` files that export a `getStaticPaths()` function.
+
+#### Create pages dynamically
+
+Create a new file at `src/pages/tags/[tag].astro`:
+
+```js
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogPost from "../../components/BlogPost.astro";
+
+export async function getStaticPaths() {
+    const allPosts = await Astro.glob("../posts/*.md");
+    return [
+        { params: { tag: "astro" }, props: { posts: allPosts } },
+        { params: { tag: "successes" }, props: { posts: allPosts } },
+        { params: { tag: "community" }, props: { posts: allPosts } },
+        { params: { tag: "blogging" }, props: { posts: allPosts } },
+        { params: { tag: "setbacks" }, props: { posts: allPosts } },
+        { params: { tag: "learning in public" }, props: { posts: allPosts } },
+    ];
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+const filteredPosts = posts.filter((post) =>
+    post.frontmatter.tags?.includes(tag),
+);
+---
+
+<BaseLayout pageTitle={tag}>
+    <style>
+        span {
+            font-style: italic;
+        }
+    </style>
+    <p>Posts tagged with <span>{tag}</span></p>
+
+    <ul>
+        {
+            filteredPosts.map(
+                // (post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>
+                (post) => <BlogPost url={post.url} title={post.frontmatter.title} />
+
+            )
+        }
+    </ul>
+</BaseLayout>
+```
+
+The `getStaticPaths()` function returns an array of page routes, and all of the pages at those routes will use the same template defined in the file.
+
+*Make sure that every blog post contains at least on tag.*
+
+We make our `props` and `tags` available outside our `getStaticPaths()` function like this:
+
+```js
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+```
+
+We filter our list of posts to only include posts that contain the page's own tag:
+
+```js
+const filteredPosts = posts.filter((post) =>
+    post.frontmatter.tags?.includes(tag),
+);
+```
+
+If we need to construct the page routes, we write it **inside** `getStaticPaths()`.
+
+To receive information in the HTML template of a page route, we write it **outside** `getStaticPaths()`.
+
+#### Generate pages from existing tags
+
+Here we are going to replace the above code with code that will automatically look for, and generate pages for, each tag used on our blog pages.
+
+All of our blog posts should contain at least one tag: `tags: ['blogging']`
+
+Now we can create an array of all of our existing tags:
+
+```js
+// src/pages/tags/[tag].astro
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const allPosts = await Astro.glob('../posts/*.md');
+
+  const uniqueTags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
+```
+
+Replace the `return` value of the `getStaticPaths()` function:
+
+```js
+// src/pages/tags/[tag].astro
+
+// return [
+//     { params: { tag: "astro" }, props: { posts: allPosts } },
+//     { params: { tag: "successes" }, props: { posts: allPosts } },
+//     { params: { tag: "community" }, props: { posts: allPosts } },
+//     { params: { tag: "blogging" }, props: { posts: allPosts } },
+//     { params: { tag: "setbacks" }, props: { posts: allPosts } },
+//     { params: { tag: "learning in public" }, props: { posts: allPosts } },
+// ];
+
+return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) =>
+        post.frontmatter.tags.includes(tag),
+    );
+    return {
+        params: { tag },
+        props: { posts: filteredPosts },
+    };
+});
+```
+
+The `getStaticPaths()` function should always return a list of objects containing `params` (what to call each page route) and optionally any `props` (data that we want to pass to those pages). 
+
+Now, we generate our list of objects automatically using our `uniqueTags` array to define each parameter.
+
+Now our list of all blog posts is filtered **before** it is sent to each page as props. 
+
+Here is the final code sample:
+
+```js
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogPost from '../../components/BlogPost.astro';
+
+export async function getStaticPaths() {
+  const allPosts = await Astro.glob('../posts/*.md');
+
+  const uniqueTags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) => post.frontmatter.tags.includes(tag));
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+<BaseLayout pageTitle={tag}>
+  <p>Posts tagged with {tag}</p>
+  <ul>
+    {posts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title}/>)}
+  </ul>
+</BaseLayout>
+```
