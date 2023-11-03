@@ -599,3 +599,15 @@ const { posts } = Astro.props;
   </ul>
 </BaseLayout>
 ```
+
+## Build a tag index page
+
+Here we are going to:
+
+- Add a new page using the `/pages/folder/index.astro` routing pattern
+- Display a list of all our unique tags, linking to each tag page
+- Update our site with navigation links to this new Tags page
+
+
+### Use the `/pages/folder/index.astro` routing pattern
+
