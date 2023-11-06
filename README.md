@@ -611,3 +611,95 @@ Here we are going to:
 
 ### Use the `/pages/folder/index.astro` routing pattern
 
+We are going to use our `/tags/` directory to store our `index.astro` file. This way we keep all our files relating to tags in the same directory.
+
+### Make a Tag Index page
+
+Create a new file at `src/pages/tags/index.astro`.
+
+Import our `<BaseLayout>` layout.
+
+Import a page title, and pass it to our layout as a component attribute.
+
+Here's the code:
+
+```js
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const pageTitle = "Tag Index";
+---
+<BaseLayout pageTitle={pageTitle}></BaseLayout>
+```
+
+### Create an array of tags
+
+Gather all the frontmatter data from each blog post in our `.md` files. We store them in `allPosts`.
+
+Next we can store an array of unique tag names in `tags`.
+
+```js
+// src/pages/tags/index.astro
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const allPosts = await Astro.glob('../posts/*.md');
+const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
+const pageTitle = "Tag Index";
+---
+```
+
+Now we can update our template in `index.astro`.
+
+```js
+<BaseLayout pageTitle={pageTitle}>
+  <div>{tags.map((tag) => <p>{tag}</p>)}</div>
+</BaseLayout>
+```
+
+Now we can turn these tags into links:
+
+```js
+<BaseLayout pageTitle={pageTitle}>
+  <div>
+    {tags.map((tag) => (
+      <p><a href={`/tags/${tag}`}>{tag}</a></p>
+    ))}
+  </div>
+</BaseLayout>
+```
+
+Here is the final code for `src/pages/tags/index.astro` with some styling:
+
+```js
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const allPosts = await Astro.glob('../posts/*.md');
+const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
+const pageTitle = "Tag Index";
+---
+<BaseLayout pageTitle={pageTitle}>
+  <div class="tags">
+    {tags.map((tag) => (
+      <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+    ))}
+  </div>
+</BaseLayout>
+<style>
+  a {
+    color: #00539F;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: .5em;
+    padding: .5em 1em;
+    font-size: 1.15em;
+    background-color: #F8FCFD;
+  }
+</style>
+```
