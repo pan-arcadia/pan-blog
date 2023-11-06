@@ -703,3 +703,9 @@ const pageTitle = "Tag Index";
   }
 </style>
 ```
+
+## RSS feed
+
+I skipped this section. Don't want to do this right now.
+
+
