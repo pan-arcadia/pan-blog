@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPost.astro
+# layout: ../../layouts/MarkdownPost.astro
 
 title: My Second Blog Post
 author: Astro Learner - Second Post

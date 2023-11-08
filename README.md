@@ -12,4 +12,21 @@ Here we will:
 
 By moving our blog posts to the special `src/content` directory, we can use performant APIs to generate our blog post index and display our individual posts.
 
-We will also use a schema to define a common structure for each post that Astro will help us enforce. We use a schema to specify when frontmatter properties are required, and which data type each property must be. 
+We will also use a **schema** to define a common structure for each post that Astro will help us enforce. We use a schema to specify when frontmatter properties are required, and which data type each property must be. 
+
+## Extending the blog tutorial with content collections
+
+In order to use content collections, we must set up TypeScript for content collections by using the `strict` or `strictest` setting. or by adding two options in `tsconfig.json`.
+
+```json
+{
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "allowJs": true
+  }
+}
+```
+
+## Create a collection for our blog posts
+
