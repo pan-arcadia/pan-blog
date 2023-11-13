@@ -1,4 +1,111 @@
+/* Reset rules */
+
+:is(*, *::before, *::after) {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+:is(input, button, textarea, select) {
+  font: inherit;
+}
+
+:is(p, h1, h2, h3, h4, h5, h6) {
+  overflow-wrap: break-word;
+}
+
+/* Colors */
+
+:root {
+  --color-canvas: hsl(0, 0%, 0%);
+  --color-text: hsl(0, 0%, 100%);
+}
+
 html {
+  background-color: var(--color-canvas);
+  color: var(--color-text);
+}
+
+/* Font sizing rules */
+
+:root {
+  --font-size-base: calc(16 / 16);
+  --font-size-desktop: calc(20 / 16);
+  --font-size-900: calc(var(--font-size-base) * 4.209em);
+  --font-size-800: calc(var(--font-size-base) * 3.157em);
+  --font-size-700: calc(var(--font-size-base) * 2.369em);
+  --font-size-600: calc(var(--font-size-base) * 1.777em);
+  --font-size-500: calc(var(--font-size-base) * 1.333em);
+  --font-size-400: calc(var(--font-size-base) * 1em);
+  --font-size-300: calc(var(--font-size-base) * 0.75em);
+  --font-size-200: calc(var(--font-size-base) * 0.563em);
+  --font-size-100: calc(var(--font-size-base) * 0.422em);
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: var(--font-size-700);
+}
+
+h2 {
+  font-size: var(--font-size-600);
+}
+
+h3 {
+  font-size: var(--font-size-500);
+}
+
+h4 {
+  font-size: var(--font-size-400);
+}
+
+h5 {
+  font-size: var(--font-size-300);
+}
+
+h6 {
+  font-size: var(--font-size-200);
+}
+
+p {
+  font-size: var(--font-size-400);
+}
+
+@media (min-width: 37.5rem) {
+  :root {
+    --font-size-base: var(--font-size-desktop);
+  }
+}
+
+/* Center page content rules */
+
+.page-wrap {
+  display: grid;
+  grid-template-columns: minmax(auto, 75ch);
+  justify-content: center;
+}
+
+
+
+
+
+
+/* html {
   background-color: #f1f5f9;
   font-family: sans-serif;
 }
@@ -27,4 +134,4 @@ body {
 h1 {
   margin: 1rem 0;
   font-size: 2.5rem;
-}
+} */
