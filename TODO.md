@@ -1,7 +1,8 @@
 # Todos for my-blog project
 
-- [X] Add CSS reset
-- [ ] Add font sizing reset
-- [ ] Page background color => dark
-- [ ] Page text color => light
-- [ ] remove light/dark mode
+- [x] Add CSS reset
+- [x] Add font sizing reset
+- [x] Page background color => dark
+- [x] Page text color => light
+- [x] remove light/dark mode
+- [x] Navigation - detect what link is active (what page we're displaying)

@@ -16,7 +16,10 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
     <p style="color:red">Written by {frontmatter.author}</p>
     <p>Published on: {frontmatter.pubDate.toString().slice(0, 10)}</p>
 
-    <div class="tags">
+    <p>Published on: {frontmatter.pubDate}</p>
+
+
+    <!-- <div class="tags">
         {
             tags.map((tag) => (
                 <p class="tag">
@@ -24,7 +27,7 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
                 </p>
             ))
         }
-    </div>
+    </div> -->
 
     <slot />
 </BaseLayout>

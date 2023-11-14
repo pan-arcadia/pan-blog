@@ -92,13 +92,7 @@ p {
   }
 }
 
-/* Center page content rules */
 
-.page-wrap {
-  display: grid;
-  grid-template-columns: minmax(auto, 75ch);
-  justify-content: center;
-}
 
 
 

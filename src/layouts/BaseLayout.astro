@@ -18,6 +18,17 @@ const { pageTitle } = Astro.props;
 		<title>{pageTitle}</title>
 		<!-- main.js loads here... -->
 		<!-- <script src="../scripts/main.js"></script> -->
+		<style>
+			/* Center page content rules */
+
+			.page-wrap {
+				display: grid;
+				grid-template-columns: minmax(auto, 75ch);
+				justify-content: center;
+				row-gap: 1em;
+				padding-inline: 1em;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="page-wrap">

@@ -1,6 +1,16 @@
+---
+
+---
+
 <style>
     a {
-        color: lightblue;
+        color: white;
+        text-decoration: none;
+    }
+    
+    .activeLink {
+        color: lightcoral;
+        text-decoration: underline;
     }
 </style>
 
@@ -8,3 +18,10 @@
 <a href="/about/">About</a>
 <a href="/blog/">Blog</a>
 <a href="/tags">Tags</a>
+
+
+<script>
+    document.querySelectorAll('a').forEach((link) => {
+        if (location.pathname === link.getAttribute('href')) link.classList.toggle('activeLink')
+    })
+</script>
