@@ -6,4 +6,5 @@
 - [x] Page text color => light
 - [x] remove light/dark mode
 - [x] Navigation - detect what link is active (what page we're displaying)
-- [ ] Style mardown pages to look a little better
+- [x] Style mardown pages to look a little better
+- [x] Style blog page

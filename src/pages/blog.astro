@@ -9,7 +9,12 @@ const pageTitle = "Blog Page";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<style></style>
+	<style>
+		ul {
+			list-style-type: none;
+			padding-left: 0;
+		}
+	</style>
 	<ul>
 		{
 			// allPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)
