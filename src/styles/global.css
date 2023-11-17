@@ -91,6 +91,10 @@ p {
   font-size: var(--font-size-400);
 }
 
+a {
+  color: var(--color-text);
+}
+
 @media (min-width: 37.5rem) {
   :root {
     --font-size-base: var(--font-size-desktop);

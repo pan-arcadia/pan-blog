@@ -7,7 +7,7 @@ pubDate: 2023-11-15 10:18:00.0 -7
 
 description: 'Entering the BIOS on an HP Envy'
 author: 'Pan Arcadia'
-tags: ['BIOS', 'HP Envy']
+tags: ['bios', 'hp', 'envy']
 ---
 
 ## How to enter BIOS

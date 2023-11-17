@@ -8,3 +8,4 @@
 - [x] Navigation - detect what link is active (what page we're displaying)
 - [x] Style mardown pages to look a little better
 - [x] Style blog page
+- [ ] Create 'How to make hard boiled eggs'
