@@ -22,6 +22,10 @@ img, picture, video, canvas, svg {
   font: inherit;
 }
 
+:is(h1, h2, h3) {
+  text-wrap: balance;
+}
+
 :is(p, h1, h2, h3, h4, h5, h6) {
   overflow-wrap: break-word;
 }
@@ -29,8 +33,8 @@ img, picture, video, canvas, svg {
 /* Colors */
 
 :root {
-  --color-canvas: hsl(0, 0%, 0%);
-  --color-text: hsl(0, 0%, 100%);
+  --color-canvas: hsl(210, 30%, 5%);
+  --color-text: hsl(210, 30%, 80%);
 }
 
 html {

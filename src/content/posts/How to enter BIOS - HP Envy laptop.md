@@ -2,7 +2,8 @@
 # layout: ../../layouts/MarkdownPost.astro
 title: 'How to enter BIOS on HP Envy laptop'
 # pubDate: 2023-11-14T10:00:00.1Z
-pubDate: 2023-11-14T10:00:00.7Z
+# pubDate: 2023-11-15 09:00:00.10 -7
+pubDate: 2023-11-15 10:18:00.0 -7
 
 description: 'Entering the BIOS on an HP Envy'
 author: 'Pan Arcadia'
