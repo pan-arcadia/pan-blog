@@ -37,42 +37,56 @@ git version
 
 ## Configure git on our machine
 
-```bash
-# Set user name.
+Set username and email:
+
+```shell
 git config --global user.name "our name"
+git config --global user.email "ourname@example.com"
+```
 
-# Set user email.
-git config --global user.email "oursite@example.com"
+Set the default `branch` name for our repositories:
 
-# Show config settings.
-git config --list
-
-# Set default branch name
-# This sets the default branch name for all repos created.
-# Common names are trunk, main, development.
+```shell
 git config --global init.defaultBranch main
 ```
 
+Display our `config` settings:
+
+```shell
+git config --list
+```
+
+[Customizing git configuration](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration)
+
 ## Initialize Git Repository
+
+Create an empty git repository or reinitialize an existing one:
 
 ```bash
 git init
 ```
 
-## Remote verbose
+This creates a `.git` directory and contains information about the repository.
+
+## Remove a Git Repository
+
+To remove a Git repository, we need to remove the `.git` folder from the directory:
+
+```bash
+rm -r .git
+```
+
+## Git remote
+
+Show the remote url:
 
 ```shell
 git remote -v
 ```
 
-## Remove a Git Repository
 
-```bash
-# Just remove the .git directory.
-rm -r .git
-```
 
-## Remove a Git Remote URL
+## Remove a remote
 
 ```shell
 git remote rm <remote-name>

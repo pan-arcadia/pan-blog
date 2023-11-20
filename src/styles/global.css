@@ -107,8 +107,10 @@ a {
 pre {
   margin-block: 1rem;
   padding: 1em;
-  font-size: var(--font-size-400);
+  font-size: var(--font-size-300);
 }
+
+
 
 
 
