@@ -12,6 +12,7 @@ tags: ['carbs', 'blueberries']
 | 10 Blueberries | 1.67 |
 | 1/4 cup | 4.35 |
 | 1/2 cup | 8.81 |
+| 1 cup | 17.51 |
 | 1 oz | 3.41 |
 
 
