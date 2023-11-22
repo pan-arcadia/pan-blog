@@ -28,7 +28,6 @@ git version
 
 [Official git site - installing on Linux](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-
 ## Verify git version
 
 ```bash
