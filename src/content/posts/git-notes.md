@@ -11,13 +11,13 @@ tags: ['git']
 Update our packages:
 
 ```shell
-sudo apt-get update
+sudo apt update
 ```
 
 Install git on our machine:
 
 ```shell
-sudo apt-get install git-all
+sudo apt install git-all
 ```
 
 Verify our installation:
