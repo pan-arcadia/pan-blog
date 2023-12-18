@@ -6,7 +6,6 @@ import Footer from "../components/Footer.astro";
 
 // const pageTitle = 'Home Page'
 const { pageTitle } = Astro.props;
-const siteTitle = 'Pan Arcadia'
 // import '../scripts/main.js'
 ---
 
@@ -16,7 +15,7 @@ const siteTitle = 'Pan Arcadia'
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{siteTitle} - {pageTitle}</title>
+		<title>{pageTitle}</title>
 		<!-- main.js loads here... -->
 		<!-- <script src="../scripts/main.js"></script> -->
 		<style>
