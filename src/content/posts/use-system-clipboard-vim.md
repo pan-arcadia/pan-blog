@@ -1,7 +1,9 @@
+---
+title: 'How to Use the System Clipboard in Vim'
 pubDate: 2023-12-12 10:00:00.0 -7
 description: 'Using the system clipboard in Vim.'
 author: 'JH'
-tags: ['vim', 'linux', 'clipboard']
+tags: ['vim', 'linux', 'clipboard', 'ubuntu']
 ---
 
 ## How to use Vim with the system clipboard
