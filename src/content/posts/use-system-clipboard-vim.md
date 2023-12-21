@@ -1,5 +1,3 @@
----
-title: 'How to use system clipboard in Vim'
 pubDate: 2023-12-12 10:00:00.0 -7
 description: 'Using the system clipboard in Vim.'
 author: 'JH'
@@ -26,7 +24,7 @@ sudp apt install vim-gtk3
 
 Note: I've seen `vim-gtk` and `vim-gtk3`. Not sure what the difference is. I installed `vim-gtk3` and it had the system clipboard enabled.
 
-Now that we have the system clipboard enabled, we can paste some text. Put Vim into INSERT mode. Paste from the clipboard with `Shift + Insert` or `Ctrl + Shift + V`.
+Now that we have the system clipboard enabled, we can paste some text. Put Vim into INSERT mode. Paste from the clipboard with `Shift+Insert` or `Ctrl+Shift+V`.
 
 ### Reference
 
