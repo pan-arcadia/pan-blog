@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-37fxchfa><head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v3.4.0"><title>How to Manage Bluetooth Devices on Linux Using bluetoothctl</title><!-- main.js loads here... --><!-- <script src="../scripts/main.js"></script> --><style>:is(*,*:before,*:after){box-sizing:border-box}*{margin:0}body{font-family:sans-serif;line-height:1.5}img,picture,video,canvas,svg{display:block;max-width:100%}:is(input,button,textarea,select){font:inherit}:is(h1,h2,h3){text-wrap:balance}:is(p,h1,h2,h3,h4,h5,h6){overflow-wrap:break-word}:root{--color-canvas: hsl(210, 30%, 5%);--color-text: hsl(210, 30%, 80%);--color-text-highlight: hsl(210, 30%, 95%)}html{background-color:var(--color-canvas);color:var(--color-text)}:root{--font-size-base:1;--font-size-desktop:1.25;--font-size-900: calc(var(--font-size-base) * 4.209em);--font-size-800: calc(var(--font-size-base) * 3.157em);--font-size-700: calc(var(--font-size-base) * 2.369em);--font-size-600: calc(var(--font-size-base) * 1.777em);--font-size-500: calc(var(--font-size-base) * 1.333em);--font-size-400: calc(var(--font-size-base) * 1em);--font-size-300: calc(var(--font-size-base) * .75em);--font-size-200: calc(var(--font-size-base) * .563em);--font-size-100: calc(var(--font-size-base) * .422em)}:is(h1,h2,h3,h4,h5,h6){font-weight:700;margin-block:1rem}h1{font-size:var(--font-size-700)}h2{font-size:var(--font-size-600)}h3{font-size:var(--font-size-500)}h4{font-size:var(--font-size-400)}h5{font-size:var(--font-size-300)}h6{font-size:var(--font-size-200)}p{font-size:var(--font-size-400)}a{color:var(--color-text)}@media (min-width: 37.5rem){:root{--font-size-base: var(--font-size-desktop)}}pre{margin-block:1rem;padding:1em;font-size:var(--font-size-300)}a[data-astro-cid-pux6a34n]{color:#fff;text-decoration:none}.activeLink[data-astro-cid-pux6a34n]{color:#f08080;text-decoration:underline}nav[data-astro-cid-3ef6ksr2]{display:flex;gap:1rem;padding-block:1rem}footer[data-astro-cid-sz7xmlte]{padding-block:2em}.page-wrap[data-astro-cid-37fxchfa]{display:grid;grid-template-columns:minmax(auto,75ch);justify-content:center;row-gap:1em;padding-inline:1em}
+</style><script type="module">document.querySelectorAll("a").forEach(t=>{location.pathname===t.getAttribute("href")&&t.classList.toggle("activeLink")});
+</script></head><body data-astro-cid-37fxchfa><div class="page-wrap" data-astro-cid-37fxchfa><header data-astro-cid-3ef6ksr2><nav data-astro-cid-3ef6ksr2><!-- <ThemeIcon /> --><a href="/" data-astro-cid-pux6a34n>Home</a><a href="/blog/" data-astro-cid-pux6a34n>Blog</a><a href="/tags" data-astro-cid-pux6a34n>Tags</a></nav></header><h1 data-astro-cid-37fxchfa>How to Manage Bluetooth Devices on Linux Using bluetoothctl</h1><div data-astro-cid-37fxchfa><hr><p style="margin-block: 1rem;">December 12, 2023</p><div style="margin-top: 2em;"><h2 id="how-to-manage-bluetooth-devices-on-linux-using-bluetoothctl">How to Manage Bluetooth Devices on Linux Using bluetoothctl</h2>
+<p>Bluetoothctl is an interactive and easy-to-use tool for controlling Bluetooth devices. It is the main utility for managing Bluetooth on Linux-based operating systems.</p>
+<blockquote>
+<p>Mwiza Kumwenda</p>
+</blockquote>
+<h3 id="checking-bluetooth-status">Checking Bluetooth Status</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> systemctl</span><span style="color:#9ECBFF"> status</span><span style="color:#9ECBFF"> bluetooth</span></span></code></pre>
+<p>If the Bluetooth service is not active, we can enable it:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> systemctl</span><span style="color:#9ECBFF"> enable</span><span style="color:#9ECBFF"> bluetooth</span></span>
+<span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> systemctl</span><span style="color:#9ECBFF"> start</span><span style="color:#9ECBFF"> bluetooth</span></span></code></pre>
+<h3 id="scanning-for-nearby-devices">Scanning for Nearby Devices</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">bluetoothctl</span><span style="color:#9ECBFF"> scan</span><span style="color:#9ECBFF"> on</span></span></code></pre>
+<h3 id="connecting-to-your-device">Connecting to Your Device</h3>
+<p>We use the MAC address of the device we want to connect with. The address that was displayed using the <code>bluetoothctl scan on</code> command.</p>
+<p>We can pair with our device:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">bluetoothctl</span><span style="color:#9ECBFF"> pair</span><span style="color:#79B8FF"> 2</span><span style="color:#9ECBFF">C:41:A1:28:7D:3F</span></span></code></pre>
+<p>We can connect with our device:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">bluetoothctl</span><span style="color:#9ECBFF"> connect</span><span style="color:#79B8FF"> 2</span><span style="color:#9ECBFF">C:41:A1:28:7D:3F</span></span></code></pre>
+<h3 id="listing-our-paired-devices">Listing our Paired Devices</h3>
+<p>We can see a list of devices already paired with our system:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">bluetoothctl</span><span style="color:#9ECBFF"> paired-devices</span></span></code></pre>
+<p>We can also list devices that are withing Bluetooth range of our machine:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">bluetoothctl</span><span style="color:#9ECBFF"> devices</span></span></code></pre>
+<h3 id="trusting-paired-devices">Trusting Paired Devices</h3>
+<p>Trusting a device allows us to easily connect with them in the future:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">bluetoothctl</span><span style="color:#9ECBFF"> trust</span><span style="color:#79B8FF"> 2</span><span style="color:#9ECBFF">C:41:A1:28:7D:3F</span></span></code></pre>
+<p>We can also untrust a device:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">bluetoothctl</span><span style="color:#9ECBFF"> untrust</span><span style="color:#79B8FF"> 2</span><span style="color:#9ECBFF">C:41:A1:28:7D:3F</span></span></code></pre>
+<h3 id="disconnecting-bluetooth-devices">Disconnecting Bluetooth Devices</h3>
+<p>We can unpair a Bluetooth device:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">bluetoothctl</span><span style="color:#9ECBFF"> remove</span><span style="color:#79B8FF"> 2</span><span style="color:#9ECBFF">C:41:A1:28:7D:3F</span></span></code></pre>
+<p>We can disconnect from a device:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">bluetoothctl</span><span style="color:#9ECBFF"> disconnect</span><span style="color:#79B8FF"> 2</span><span style="color:#9ECBFF">C:41:A1:28:7D:3F</span></span></code></pre>
+<p>We can also block a specific device from connecting to our machine:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">bluetoothctl</span><span style="color:#9ECBFF"> block</span><span style="color:#79B8FF"> 2</span><span style="color:#9ECBFF">C:41:A1:28:7D:3F</span></span></code></pre>
+<p>And we can unblock a device:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">bluetoothctl</span><span style="color:#9ECBFF"> unblock</span><span style="color:#79B8FF"> 2</span><span style="color:#9ECBFF">C:41:A1:28:7D:3F</span></span></code></pre>
+<h3 id="using-the-interactive-mode">Using the Interactive Mode</h3>
+<p>We can use the interactive utility to enter all the above commands.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">bluetoothctl</span></span></code></pre>
+<p>To exit the interactive mode, type the <code>exit</code> command.</p>
+<h3 id="reference">Reference</h3>
+<p>[# How to Manage Bluetooth Devices on Linux Using bluetoothctl](<a href="https://www.makeuseof.com/manage-bluetooth-linux-with-bluetoothctl/">How to Manage Bluetooth Devices on Linux Using bluetoothctl</a>)</p></div></div><footer data-astro-cid-sz7xmlte><!-- <button class="test-button">Click Me</button> --><p data-astro-cid-sz7xmlte></p></footer></div><!-- <script>
+			import '../scripts/main.js'
+		</script> --></body></html><!-- <style>
+    a {
+        color: #00539f;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        margin: 0.25em;
+        border: dotted 1px #a1a1a1;
+        border-radius: 0.5em;
+        padding: 0.5em 1em;
+        font-size: 1.15em;
+        background-color: #f8fcfd;
+    }
+</style> -->

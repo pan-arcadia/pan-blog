@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-37fxchfa><head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v3.4.0"><title>Git Cheat Sheet</title><!-- main.js loads here... --><!-- <script src="../scripts/main.js"></script> --><style>:is(*,*:before,*:after){box-sizing:border-box}*{margin:0}body{font-family:sans-serif;line-height:1.5}img,picture,video,canvas,svg{display:block;max-width:100%}:is(input,button,textarea,select){font:inherit}:is(h1,h2,h3){text-wrap:balance}:is(p,h1,h2,h3,h4,h5,h6){overflow-wrap:break-word}:root{--color-canvas: hsl(210, 30%, 5%);--color-text: hsl(210, 30%, 80%);--color-text-highlight: hsl(210, 30%, 95%)}html{background-color:var(--color-canvas);color:var(--color-text)}:root{--font-size-base:1;--font-size-desktop:1.25;--font-size-900: calc(var(--font-size-base) * 4.209em);--font-size-800: calc(var(--font-size-base) * 3.157em);--font-size-700: calc(var(--font-size-base) * 2.369em);--font-size-600: calc(var(--font-size-base) * 1.777em);--font-size-500: calc(var(--font-size-base) * 1.333em);--font-size-400: calc(var(--font-size-base) * 1em);--font-size-300: calc(var(--font-size-base) * .75em);--font-size-200: calc(var(--font-size-base) * .563em);--font-size-100: calc(var(--font-size-base) * .422em)}:is(h1,h2,h3,h4,h5,h6){font-weight:700;margin-block:1rem}h1{font-size:var(--font-size-700)}h2{font-size:var(--font-size-600)}h3{font-size:var(--font-size-500)}h4{font-size:var(--font-size-400)}h5{font-size:var(--font-size-300)}h6{font-size:var(--font-size-200)}p{font-size:var(--font-size-400)}a{color:var(--color-text)}@media (min-width: 37.5rem){:root{--font-size-base: var(--font-size-desktop)}}pre{margin-block:1rem;padding:1em;font-size:var(--font-size-300)}a[data-astro-cid-pux6a34n]{color:#fff;text-decoration:none}.activeLink[data-astro-cid-pux6a34n]{color:#f08080;text-decoration:underline}nav[data-astro-cid-3ef6ksr2]{display:flex;gap:1rem;padding-block:1rem}footer[data-astro-cid-sz7xmlte]{padding-block:2em}.page-wrap[data-astro-cid-37fxchfa]{display:grid;grid-template-columns:minmax(auto,75ch);justify-content:center;row-gap:1em;padding-inline:1em}
+</style><script type="module">document.querySelectorAll("a").forEach(t=>{location.pathname===t.getAttribute("href")&&t.classList.toggle("activeLink")});
+</script></head><body data-astro-cid-37fxchfa><div class="page-wrap" data-astro-cid-37fxchfa><header data-astro-cid-3ef6ksr2><nav data-astro-cid-3ef6ksr2><!-- <ThemeIcon /> --><a href="/" data-astro-cid-pux6a34n>Home</a><a href="/blog/" data-astro-cid-pux6a34n>Blog</a><a href="/tags" data-astro-cid-pux6a34n>Tags</a></nav></header><h1 data-astro-cid-37fxchfa>Git Cheat Sheet</h1><div data-astro-cid-37fxchfa><hr><p style="margin-block: 1rem;">November 19, 2023</p><div style="margin-top: 2em;"><h2 id="how-to-install-git-on-ubuntu">How to install git on Ubuntu</h2>
+<p>Update our packages:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> apt</span><span style="color:#9ECBFF"> update</span></span></code></pre>
+<p>Install git on our machine:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> apt</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> git-all</span></span></code></pre>
+<p>Verify our installation:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> version</span></span></code></pre>
+<p><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Official git site - installing on Linux</a></p>
+<h2 id="verify-git-version">Verify git version</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> version</span></span></code></pre>
+<h2 id="configure-git-on-our-machine">Configure git on our machine</h2>
+<p>Set username and email:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> config</span><span style="color:#79B8FF"> --global</span><span style="color:#9ECBFF"> user.name</span><span style="color:#9ECBFF"> "our name"</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> config</span><span style="color:#79B8FF"> --global</span><span style="color:#9ECBFF"> user.email</span><span style="color:#9ECBFF"> "ourname@example.com"</span></span></code></pre>
+<p>Set the default <code>branch</code> name for our repositories:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> config</span><span style="color:#79B8FF"> --global</span><span style="color:#9ECBFF"> init.defaultBranch</span><span style="color:#9ECBFF"> main</span></span></code></pre>
+<p>Display our <code>config</code> settings:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> config</span><span style="color:#79B8FF"> --list</span></span></code></pre>
+<p><a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration">Customizing git configuration</a></p>
+<h2 id="initialize-git-repository">Initialize Git Repository</h2>
+<p>Create an empty git repository or reinitialize an existing one:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> init</span></span></code></pre>
+<p>This creates a <code>.git</code> directory and contains information about the repository.</p>
+<h2 id="remove-a-git-repository">Remove a Git Repository</h2>
+<p>To remove a Git repository, we need to remove the <code>.git</code> folder from the directory:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">rm</span><span style="color:#79B8FF"> -r</span><span style="color:#9ECBFF"> .git</span></span></code></pre>
+<h2 id="git-remote">Git remote</h2>
+<p>Show the remote url:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> remote</span><span style="color:#79B8FF"> -v</span></span></code></pre>
+<h2 id="remove-a-remote">Remove a remote</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> remote</span><span style="color:#9ECBFF"> rm</span><span style="color:#F97583"> &#x3C;</span><span style="color:#9ECBFF">remote-nam</span><span style="color:#E1E4E8">e</span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> remote</span><span style="color:#9ECBFF"> remove</span><span style="color:#F97583"> &#x3C;</span><span style="color:#9ECBFF">remote-nam</span><span style="color:#E1E4E8">e</span><span style="color:#F97583">></span></span></code></pre>
+<h2 id="git-status">Git Status</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> status</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> status</span><span style="color:#79B8FF"> --short</span></span></code></pre>
+<p>Short status flags:</p>
+<ul>
+<li>?? - Untracked files</li>
+<li>A - Files added to stage</li>
+<li>M - Modified files</li>
+<li>D - Deleted files</li>
+</ul>
+<h2 id="staging-files">Staging Files</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Stage a file by name.</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> add</span><span style="color:#F97583"> &#x3C;</span><span style="color:#9ECBFF">filenam</span><span style="color:#E1E4E8">e</span><span style="color:#F97583">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Stage multiple files.</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> add</span><span style="color:#79B8FF"> --all</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Stage multiple files shorthand.</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> add</span><span style="color:#9ECBFF"> .</span></span></code></pre>
+<h2 id="commiting-files">Commiting Files</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> commit</span><span style="color:#79B8FF"> -m</span><span style="color:#9ECBFF"> "message"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Stage all changed and tracked files.</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> commit</span><span style="color:#79B8FF"> -a</span><span style="color:#79B8FF"> -m</span><span style="color:#9ECBFF"> "message"</span></span></code></pre>
+<h2 id="git-log">Git Log</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> log</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Show one line per commit.</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> log</span><span style="color:#79B8FF"> --oneline</span></span></code></pre>
+<p><strong>Note</strong>: If there is a long list view in the terminal, <code>shift + G</code> to jump to the end of the list, then <code>q</code> to exit the list.</p>
+<h2 id="git-branch">Git Branch</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Create a new branch.</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> branch</span><span style="color:#9ECBFF"> branch_name</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Checkout a branch.</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> checkout</span><span style="color:#9ECBFF"> branch_name</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Create a new branch and move to it immediately.</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> checkout</span><span style="color:#79B8FF"> -b</span><span style="color:#9ECBFF"> branch_name</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># List all branches in repository.</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> branch</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Merge branches.</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> merge</span><span style="color:#9ECBFF"> branch_name</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Delete a branch</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> branch</span><span style="color:#79B8FF"> -d</span><span style="color:#9ECBFF"> branch_name</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Force delete a branch.</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> branch</span><span style="color:#79B8FF"> -D</span><span style="color:#9ECBFF"> branch_name</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Change branch name.</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> branch</span><span style="color:#79B8FF"> -M</span><span style="color:#9ECBFF"> branch_name</span></span></code></pre></div></div><footer data-astro-cid-sz7xmlte><!-- <button class="test-button">Click Me</button> --><p data-astro-cid-sz7xmlte></p></footer></div><!-- <script>
+			import '../scripts/main.js'
+		</script> --></body></html><!-- <style>
+    a {
+        color: #00539f;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        margin: 0.25em;
+        border: dotted 1px #a1a1a1;
+        border-radius: 0.5em;
+        padding: 0.5em 1em;
+        font-size: 1.15em;
+        background-color: #f8fcfd;
+    }
+</style> -->
